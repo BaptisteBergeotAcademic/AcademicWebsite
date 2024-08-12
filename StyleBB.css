@@ -43,7 +43,7 @@ main {
 body {
   color: black;
   font-family: arial;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.6)), url("saintmalo.jpeg");
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.6)), url("https://github.com/BaptisteBergeotAcademic/AcademicWebsite/blob/main/saintmalo.jpeg");
   background-attachment: fixed;
   background-size: cover;
   font-size: 100%;
