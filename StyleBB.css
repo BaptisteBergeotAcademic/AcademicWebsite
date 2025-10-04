@@ -1,7 +1,7 @@
 li{
   margin: 8px 0;
   font-size: 102%;
-  max-width: 1200px;
+  max-width: 1300px;
     
 }
 
@@ -47,7 +47,7 @@ main {
   font-family: arial;
 /*  background-color:#FFFDF5;*/
   font-size: 102%;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
   line-height: 1.25em;
 }
@@ -62,7 +62,7 @@ body {
   background-size: cover;
 /*  background-size: cover;*/
   font-size: 102%;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: auto;
   padding-right: 100px;
   padding-left: 100px;
