@@ -166,3 +166,8 @@ ol > li:nth-child(even) {
   background-color: #eeeeee; /* gris léger */
   border-radius: 6px;
 }
+
+table td {
+    vertical-align: top;
+  }
+
