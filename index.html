@@ -1,220 +1,56 @@
 <!DOCTYPE html>
 <meta charset="utf-8"/>
+<link href="StyleBB.css" rel="stylesheet">
 <html>
-
-
-<style>
-li{
-  margin: 8px 0;
-  font-size: 102%;
-  max-width: 1250px;
-    
-}
-
-header {
-  padding: 16px 10px;
-  background:  #034590;
-  color: #fcfcfc;
-  font-size: 17px;
-  margin-bottom: 0.7cm;
-}
-
-h1 {
-margin-bottom: 1cm;}
-
-h1,h2,h3 {
-  line-height: 1.25em;
-  color: #034590;
-}
-
-footer {
-  padding: 20px;
-  background: #034590;
-  color: #fcfcfc;
-  font-size: 15px;
-  margin-top: 1.5cm;
-}
-
-main {
-  min-height: 100vh;
-  color: black;
-  font-family: Arial;
-
-  font-size: 102%;
-  max-width: 1250px;
-  margin: auto;
-  line-height: 1.4em;
-}
-
-body {
-  color: black;
-  font-family: 'Arial', Arial, sans-serif;
-  background-color:#fcfcfc;
-  /*background-image: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.6)), url("saintmalo.jpeg");*/
-  background-position: center;
-  background-attachment: fixed;
-  background-size: cover;
-/*  background-size: cover;*/
-  font-size: 102%;
-  max-width: 1250px;
-  margin: auto;
-  padding-right: 100px;
-  padding-left: 100px;
-}
-  
-a {
-  color: #034590;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #022d5d;
-  text-decoration: underline;
-}
-
-a.class1 {
-  color: #D9F0FF;
-  background-color: transparent}
-  
-a.class2 {
-  color: #D9F0FF;
-  background-color: transparent;
-  text-decoration: none;}
-  
-h2:after
-{
-    content:' ';
-    display:block;
-    border:1px solid #034590;
-}
-
-h3 {
-margin-bottom: 0.2cm;}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Create two unequal columns that floats next to each other */
-.column {
-  float: left;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-.left {
-  width: 25%;
-}
-
-.right {
-  width: 75%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-ul > li {
-  padding: 8px 8px;   /* espace interne : haut/bas 8px, gauche/droite 8px */
-  margin: 3px 0;      /* espace externe : 3px en haut et en bas */
-}
-
-ul > li:nth-child(odd) {
-  background-color: #e3ecf5; /* bleu léger */
-  border-radius: 6px;
-}
-
-ul > li:nth-child(even) {
-  background-color: #eeeeee; /* gris léger */
-  border-radius: 6px;
-}
-
-
-ol > li {
-  padding: 8px 8px;   /* espace interne : haut/bas 12px, gauche/droite 10px */
-  margin: 3px 0;        /* espace externe : 6px en haut et en bas */
-}
-
-ol > li:nth-child(odd) {
-  background-color: #e3ecf5; /* bleu léger */
-  border-radius: 6px;
-}
-
-ol > li:nth-child(even) {
-  background-color: #eeeeee; /* gris léger */
-  border-radius: 6px;
-}
-
-</style>
 
 <main>
 
 <header>
-  <div style="text-align:center; font-size:1.7em; font-weight:bold; line-height:1.2;">
+  <div class="header-title">
     Baptiste Bergeot - Academic Website
   </div>
-  <div style="margin-top:20px; text-align:center;">
+  <div class="header-nav">
     <a href="index.html" class="class1">Home</a>
-    <span style="margin: 0 10px;">|</span>
+    <span style="margin: 0 6px;">|</span>
     <a href="SWBB_CV.html" class="class1">CV</a>
-    <span style="margin: 0 10px;">|</span>
+    <span style="margin: 0 6px;">|</span>
     <a href="SWBB_research.html" class="class1">Research</a>
-    <span style="margin: 0 10px;">|</span>
+    <span style="margin: 0 6px;">|</span>
     <a href="SWBB_projects.html" class="class1">Projects</a>
-    <span style="margin: 0 10px;">|</span>
+    <span style="margin: 0 6px;">|</span>
     <a href="SWBB_publications.html" class="class1">Publications</a>
-    <span style="margin: 0 10px;">|</span>
+    <span style="margin: 0 6px;">|</span>
     <a href="SWBB_talks.html" class="class1">Talks</a>
-    <span style="margin: 0 10px;">|</span>
+    <span style="margin: 0 6px;">|</span>
     <a href="SWBB_supervision.html" class="class1">Research supervision</a>
-    <span style="margin: 0 10px;">|</span>
+    <span style="margin: 0 6px;">|</span>
     <a href="SWBB_teaching.html" class="class1">Teaching</a>
   </div>
 </header>
 
 
-
-<!-- <h1 style="text-align:center;">Baptiste Bergeot - Academic Website</h1> -->
-
-
-<div class="row">
-  <div class="column left">
-	<img src="Picture_BBergeot_4.jpeg" alt="Trulli" width="200">
-  </div>
-  <div class="column right">
-  <p>
+<section class="profile">
+  <img class="profile-photo" src="Picture_BBergeot_4.jpeg" alt="Baptiste Bergeot" width="190">
+  <div class="profile-text">
+    <p>
 Since September 2015, I work as an associate professor (Maître de conférences)
 at INSA Centre Val de Loire (Blois, France). I do my research within the Laboratoire Gabriel Lamé (LaMé).
 Previously, I worked as a postdoctoral researcher with Prof.
 Bruno Cochelin and Prof. Sergio Bellizzi at <i>Centrale Méditérannée</i> and the <i>Laboratoire de Mécanique et d'Acoustique</i>
 (LMA, Marseille, France).
 I hold a <a href="SWBB_publications.html#phd-dissertation">PhD</a> from Le Mans University (Le Mans, France), which was supervised by Dr. André Almeida, Prof. Christophe Vergez and Prof. Bruno Gazengel. I am accredited to supervise research <a href="SWBB_publications.html#hdr-dissertation">(HDR)</a> by the University of Tours since February 2024.
-</p>
+    </p>
 
-<br> 
-
-<br>  
-
-<span style="float:right;">
-<a href="https://www.insa-centrevaldeloire.fr" class="class2">
-<img src="documents/insa_cvl_grand_logo.jpg" alt="Trulli" width="200"
-alt="Google Scholar"> </a>
-
-&emsp;&emsp;
-	
-<a href="https://www.mechlabgabriellame.fr" class="class2">
-<img src="documents/LogoLaMe.png" alt="Trulli" width="170"
-alt="Researchgate">  </a>
-
-</span>
-
-
-</div>
-</div>
+    <div class="logos">
+      <a href="https://www.insa-centrevaldeloire.fr" class="class2">
+        <img src="documents/insa_cvl_grand_logo.jpg" alt="INSA Centre Val de Loire" width="190">
+      </a>
+      <a href="https://www.mechlabgabriellame.fr" class="class2">
+        <img src="documents/LogoLaMe.png" alt="Laboratoire Gabriel Lamé" width="160">
+      </a>
+    </div>
+  </div>
+</section>
 
 
 <h2>News</h2>
@@ -229,12 +65,12 @@ alt="Researchgate">  </a>
 The dynamic saddle-node bifurcation with noise on the slow variable.
  <em>Submitted to Nonlinearity</em>, 2025.<br>
  <a href="https://hal.science/hal-05413019v1"target="_blank" style="display:inline-flex;">
-  <img src="documents/HAL_logo-seul-rvb_fond-clair.png" 
-    alt="PDF" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:8px; border:none;">
+  <img src="documents/HAL_logo-seul-rvb_fond-clair.png"
+    alt="HAL" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:8px; border:none;">
 </a>
 <a href="https://arxiv.org/abs/2512.10460"target="_blank" style="display:inline-flex;">
-  <img src="documents/arxiv-logo-small.png" 
-    alt="PDF" style="width:50px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
+  <img src="documents/arxiv-logo-small.png"
+    alt="arXiv" style="width:50px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
 </a>
 <div style="height: 12px;"></div>
 <span style="font-size: 0.9em; line-height: 1.1; display: inline-block; font-style: italic; color: grey;">
@@ -254,12 +90,12 @@ Basins of attraction in a dynamical system with a time-varying control parameter
  <em>Journal of Sound and Vibration</em>, 618(A):119241, 2025.<br>
 <a href="https://doi.org/10.1016/j.jsv.2025.119241"
     target="_blank" style="display:inline-flex ; align-items:center;">
-    <img src="documents/DOI_logo.png" 
-    alt="PDF" style="width:23px; position:relative; top:5px; margin-left:0px;margin-right:8px; border:none;">
+    <img src="documents/DOI_logo.png"
+    alt="DOI" style="width:23px; position:relative; top:5px; margin-left:0px;margin-right:8px; border:none;">
 </a>
 <a href="https://hal.science/hal-05264904"target="_blank" style="display:inline-flex;">
-  <img src="documents/HAL_logo-seul-rvb_fond-clair.png" 
-    alt="PDF" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
+  <img src="documents/HAL_logo-seul-rvb_fond-clair.png"
+    alt="HAL" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
 </a>
 </li>
 
@@ -271,12 +107,12 @@ Predicting transient dynamics in a model of reed musical instrument with slowly 
  <em>Selected as Editor's Pick</em></span>.<br>
 <a href="http://dx.doi.org/10.1063/5.0190512"
     target="_blank" style="display:inline-flex ; align-items:center;">
-    <img src="documents/DOI_logo.png" 
-    alt="PDF" style="width:23px; position:relative; top:5px; margin-left:0px;margin-right:8px; border:none;">
+    <img src="documents/DOI_logo.png"
+    alt="DOI" style="width:23px; position:relative; top:5px; margin-left:0px;margin-right:8px; border:none;">
 </a>
 <a href="https://hal.science/hal-04378556"target="_blank" style="display:inline-flex;">
-  <img src="documents/HAL_logo-seul-rvb_fond-clair.png" 
-    alt="PDF" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
+  <img src="documents/HAL_logo-seul-rvb_fond-clair.png"
+    alt="HAL" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
 </a>
 </li>
 
@@ -287,12 +123,12 @@ Predicting transient dynamics in a model of reed musical instrument with slowly 
  <em>Physica D: Nonlinear Phenomena</em>, 460:134063, 2024.<br>
 <a href="http://dx.doi.org/10.1016/j.physd.2024.134063"
     target="_blank" style="display:inline-flex ; align-items:center;">
-    <img src="documents/DOI_logo.png" 
-    alt="PDF" style="width:23px; position:relative; top:5px; margin-left:0px;margin-right:8px; border:none;">
+    <img src="documents/DOI_logo.png"
+    alt="DOI" style="width:23px; position:relative; top:5px; margin-left:0px;margin-right:8px; border:none;">
 </a>
 <a href="https://hal.science/hal-04280444"target="_blank" style="display:inline-flex;">
-  <img src="documents/HAL_logo-seul-rvb_fond-clair.png" 
-    alt="PDF" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
+  <img src="documents/HAL_logo-seul-rvb_fond-clair.png"
+    alt="HAL" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
 </a>
 </li>
 
@@ -308,7 +144,6 @@ Predicting transient dynamics in a model of reed musical instrument with slowly 
 </b>.
 Slow-Fast analysis of a resonant oscillator coupled to a Bi-Stable Nonlinear Energy Sink and a Piezoelectric element.
  <em>Journées du GDR ExModeli</em>, 2025, ENSAM, Lille, France.
-<!--<b>Slides available <a href="documents/Beamer_GDRDYNOLIN_v4.pdf "target="_blank"> here</a></b>.-->
 </li>
 
 <li>
@@ -316,14 +151,14 @@ Slow-Fast analysis of a resonant oscillator coupled to a Bi-Stable Nonlinear Ene
 Dynamics of a slow–fast stochastic mechanical system: saddle–Node bifurcation under a slowly time-varying and stochastic parameter.
 <em>Workshop for young researchers in Stochastic Analysis and Stochastic Geometric Analysis</em>, 23-26 September 2025, EPFL, Lausanne, Switzerland.
 </li>
-	
+
 <li>
 <b>Baptiste Bergeot</b>.
  Two examples of fast-slow dynamics in mechanical engineering.
  <em>Floris Takens seminar, Bernoulli Institute</em>, May 7, 2025. Groningen, Netherlands.<br>
 <a href="documents/SeminarGUMay2025_BBergeot_v2.pdf"target="_blank" style="display:inline-flex; align-items:center; text-decoration:none;margin-top: 7px">
   Slideshow
-  <img src="documents/PDF_file_icon.png" 
+  <img src="documents/PDF_file_icon.png"
     alt="PDF" style="width:22px; margin-left:8px; border:none; ">
     </a>
 </li>
@@ -334,16 +169,13 @@ Influence de la dynamique des paramètres de contrôle et phénomène de bascule
  In <em>17e Congr&egrave;s Fran&ccedil;ais d'Acoustique, CFA2025</em>,
   Paris, France, April 27-30 2025.<br>
 <a href="https://hal.science/hal-05049918"target="_blank" style="display:inline-flex;">
-  <img src="documents/HAL_logo-seul-rvb_fond-clair.png" 
-    alt="PDF" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
+  <img src="documents/HAL_logo-seul-rvb_fond-clair.png"
+    alt="HAL" style="width:70px; position:relative; top:7px; margin-left:0px;margin-right:0px; border:none;">
 </a>
-
 </li>
 
 </ul>
 
-
-<br>  </br> 
 
 <h2>Contact</h2>
 
@@ -360,48 +192,30 @@ Tel : +33 (0) 2 54 55 47 34<br>
 </p>
 
 
-<br>  </br> 
-
-
-<p>
+<div class="social">
 	<a href="https://cv.archives-ouvertes.fr/baptiste-bergeot" class="class2">
-	<img src="documents/HAL_logotype-rvb_fond-clair_en.png" alt="Trulli" width="150"
-	alt="Google Scholar"> </a>
-	
-	&emsp;&emsp;
-	
-	<a href="http://arxiv.org/a/bergeot_b_1" class="class2">
-	<img src="documents/arxiv-logo.png" alt="Trulli" width="120"
-		 alt="Publons"> </a>
-		 
-    &emsp;&emsp;
-	
-	<a href="https://orcid.org/0000-0001-5362-5125" class="class2">
-	<img src="documents/orcid_logo.png" alt="Trulli" width="140"
-		 alt="Orcid"> </a>
+	<img src="documents/HAL_logotype-rvb_fond-clair_en.png" alt="HAL" width="150"></a>
 
-    &emsp;&emsp;
+	<a href="http://arxiv.org/a/bergeot_b_1" class="class2">
+	<img src="documents/arxiv-logo.png" alt="arXiv" width="120"></a>
+
+	<a href="https://orcid.org/0000-0001-5362-5125" class="class2">
+	<img src="documents/orcid_logo.png" alt="ORCID" width="140"></a>
 
 	<a href="https://scholar.google.fr/citations?user=xHsfh2wAAAAJ&hl=fr" class="class2">
-	<img src="documents/Google_Scholar_logo_2015.PNG" alt="Trulli" width="140"
-	alt="Google Scholar"> </a>
-	
-	&emsp;&emsp;
-	
+	<img src="documents/Google_Scholar_logo_2015.PNG" alt="Google Scholar" width="140"></a>
+
 	<a href="https://www.researchgate.net/profile/Baptiste-Bergeot" class="class2">
-	<img src="documents/a20eba6e731416eb4cffa.jpg" alt="Trulli" width="140"
-		 alt="Researchgate">  </a>
-</p>
+	<img src="documents/a20eba6e731416eb4cffa.jpg" alt="ResearchGate" width="140"></a>
+</div>
 
 
 </main>
 
 
 <footer><b>Baptiste Bergeot</b> - Academic Website
-	
     <span style="float:right;">
     <a href="#" class="class1">Back to top ↑</a>
-        
     </span>
 </footer>
 
