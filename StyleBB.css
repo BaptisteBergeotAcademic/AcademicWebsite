@@ -374,9 +374,32 @@ footer .social a:hover img { transform: translateY(-1px); opacity: 1; }
   header { padding: 16px; position: static; flex-direction: column; text-align: center; }
   header > div:first-child { font-size: 1.15em !important; white-space: normal; }
   .header-title { font-size: 1.3em; }
+  /* roomier, easier-to-tap nav on touch screens */
+  header a.class1 { padding: 7px 11px; margin: 3px; font-size: .95em; }
   footer { grid-template-columns: 1fr; justify-items: center; text-align: center; row-gap: 8px; }
   footer .footer-name, footer .footer-top { justify-self: center; }
   ul, ol { padding-left: 26px; }
+}
+
+/* Small phones: stack the CV tables (date / role / place) into readable
+   blocks instead of cramming three columns into ~340px. */
+@media (max-width: 560px) {
+  body { padding: 0 16px; }
+  h1 { margin: 12px 0 24px; }
+  h2 { margin: 38px 0 16px; }
+  table[style*="border-radius"],
+  table[style*="border-radius"] tbody,
+  table[style*="border-radius"] tr,
+  table[style*="border-radius"] td { display: block; width: 100% !important; }
+  table[style*="border-radius"] td { border-top: none !important; padding: 2px 14px !important; }
+  table[style*="border-radius"] tr + tr td:first-child {
+    border-top: 1px solid var(--blue-line) !important;
+    margin-top: 8px; padding-top: 12px !important;
+  }
+  table[style*="border-radius"] td:first-child {
+    color: var(--blue); font-weight: 600; white-space: normal;
+  }
+  ul > li, ol > li { padding: 12px 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
