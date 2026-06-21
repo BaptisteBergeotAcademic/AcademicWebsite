@@ -77,12 +77,13 @@ header {
   border-radius: 0;
   box-shadow: var(--shadow-md);
 }
-header > div:first-child { white-space: nowrap; font-size: 1.4em !important; }   /* keep the title on one line */
+header > div:first-child { white-space: nowrap; font-size: 1.2em !important; }   /* keep the title on one line */
 
 /* so anchor links (#phd-dissertation, TOCs) don't hide under the sticky bar */
 h1, h2, h3, [id] { scroll-margin-top: 130px; }
 
 .header-title { text-align: center; font-size: 1.7em; font-weight: 700; line-height: 1.2; }
+.header-subtitle { font-weight: 400; font-size: .82em; }   /* "- Academic Website" lighter + smaller */
 .header-nav   { margin-top: 10px; text-align: center; }
 
 /* nav now sits inline with the title — no top offset */
@@ -318,9 +319,13 @@ blockquote p:last-child { margin-bottom: 0; }
 
 /* --------------------------------------------------------------- Footer */
 footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px 24px;
   width: 100vw;
   margin: 56px calc(50% - 50vw) 0;
-  padding: 22px calc(max(0px, (100vw - var(--maxw)) / 2) + clamp(18px, 5vw, 78px));
+  padding: 14px clamp(16px, 3vw, 44px);
   background: var(--blue);
   background-image: linear-gradient(180deg, var(--blue) 0%, #023a78 100%);
   color: #fcfcfc;
@@ -329,8 +334,37 @@ footer {
 }
 footer a.class1 { color: #e8f1fc; }
 footer a.class1:hover { color: #ffffff; }
+footer .footer-name { justify-self: start; }
+footer .footer-top  { justify-self: end; }
+
+/* social logos inside the footer: small, on white chips so they stay
+   legible on the blue background, sized to keep the footer height. */
+footer .social {
+  margin: 0;
+  gap: 10px;
+  justify-self: center;       /* centered on the page (middle column) */
+  justify-content: center;
+}
+footer .social img {
+  height: 24px;
+  width: auto !important;     /* override inline width="150" etc. */
+  filter: none;
+  opacity: 1;
+  background: #ffffff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: none;
+}
+footer .social a:hover img { transform: translateY(-1px); opacity: 1; }
 
 /* --------------------------------------------------------- Responsive */
+/* As soon as the title + menu no longer fit on one line, stack them
+   centered (title above menu) instead of leaving the menu hanging left. */
+@media (max-width: 1200px) {
+  header { flex-direction: column; justify-content: center; text-align: center; }
+  header > div:last-child { width: 100%; }
+}
+
 @media (max-width: 820px) {
   body { font-size: 16px; }
   .column, .left, .right { float: none; width: 100%; padding: 0; }
@@ -338,8 +372,10 @@ footer a.class1:hover { color: #ffffff; }
   .profile-text { text-align: left; }
   .logos, .social { justify-content: center; }
   header { padding: 16px; position: static; flex-direction: column; text-align: center; }
-  header > div:first-child { font-size: 1.3em !important; white-space: normal; }
+  header > div:first-child { font-size: 1.15em !important; white-space: normal; }
   .header-title { font-size: 1.3em; }
+  footer { grid-template-columns: 1fr; justify-items: center; text-align: center; row-gap: 8px; }
+  footer .footer-name, footer .footer-top { justify-self: center; }
   ul, ol { padding-left: 26px; }
 }
 
