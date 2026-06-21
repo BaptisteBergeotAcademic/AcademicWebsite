@@ -28,7 +28,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   color: var(--ink);
@@ -56,23 +56,37 @@ main {
 
 /* ----------------------------------------------------------------- Header */
 header {
-  padding: 22px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* title left, menu right, on a single line */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  /* full-bleed: spans the whole viewport width, content stays centered */
+  width: 100vw;
+  margin: 0 calc(50% - 50vw) 28px;
+  padding: 14px clamp(16px, 3vw, 44px);
   background: var(--blue);
   /* subtle depth + a thin lighter top edge */
   background-image: linear-gradient(180deg, #0a4f9e 0%, var(--blue) 60%);
   color: #fcfcfc;
   font-size: 17px;
-  margin: 0 0 28px;
-  border-radius: 0 0 14px 14px;
+  border-radius: 0;
   box-shadow: var(--shadow-md);
 }
+header > div:first-child { white-space: nowrap; font-size: 1.4em !important; }   /* keep the title on one line */
+
+/* so anchor links (#phd-dissertation, TOCs) don't hide under the sticky bar */
+h1, h2, h3, [id] { scroll-margin-top: 130px; }
 
 .header-title { text-align: center; font-size: 1.7em; font-weight: 700; line-height: 1.2; }
 .header-nav   { margin-top: 10px; text-align: center; }
 
-/* The content pages hard-code margin-top:20px on the nav div; force the
-   shorter 10px spacing used on the home page so all headers match. */
-header > div:last-child { margin-top: 10px !important; }
+/* nav now sits inline with the title — no top offset */
+header > div:last-child { margin-top: 0 !important; }
 
 /* Nav links (a.class1 are the top navigation, light-on-blue) */
 header a,
@@ -85,10 +99,10 @@ a.class2 {
 
 header a.class1 {
   display: inline-block;
-  padding: 4px 10px;
-  margin: 2px 4px;           /* spacing replaces the old "|" */
+  padding: 3px 7px;
+  margin: 2px 2px;           /* spacing replaces the old "|" */
   border-radius: 7px;
-  font-size: .94em;
+  font-size: .86em;
   line-height: 1.5;
   white-space: nowrap;       /* never break a label in two   */
   text-decoration: none;
@@ -110,13 +124,14 @@ h1, h2, h3 { color: var(--blue); line-height: 1.25em; }
 
 h1 {
   margin: 18px 0 34px;
+  font-size: clamp(1.75rem, 1.30rem + 1.7vw, 2.35rem);
   font-weight: 700;
   letter-spacing: -.015em;
 }
 
 h2 {
   margin: 50px 0 20px;
-  font-size: 1.5em;
+  font-size: clamp(1.35rem, 1.18rem + .65vw, 1.62rem);
   font-weight: 600;
   letter-spacing: -.01em;
   padding-bottom: 10px;
@@ -289,15 +304,28 @@ address {
   color: var(--ink);
 }
 
+/* ----------------------------------------------------------- Blockquote */
+blockquote {
+  width: 90%;
+  margin: 24px auto;
+}
+blockquote p { max-width: none; }       /* fill the 90% width */
+blockquote p:last-child { margin-bottom: 0; }
+
+/* Soften the bright inline DarkOrange (project subtitles, "Editor's Pick")
+   into a quieter burnt amber that sits better next to the blue. */
+[style*="DarkOrange"] { color: #c2410c !important; }
+
 /* --------------------------------------------------------------- Footer */
 footer {
-  padding: 22px 24px;
+  width: 100vw;
+  margin: 56px calc(50% - 50vw) 0;
+  padding: 22px calc(max(0px, (100vw - var(--maxw)) / 2) + clamp(18px, 5vw, 78px));
   background: var(--blue);
   background-image: linear-gradient(180deg, var(--blue) 0%, #023a78 100%);
   color: #fcfcfc;
   font-size: 15px;
-  margin-top: 56px;
-  border-radius: 14px 14px 0 0;
+  border-radius: 0;
 }
 footer a.class1 { color: #e8f1fc; }
 footer a.class1:hover { color: #ffffff; }
@@ -309,9 +337,9 @@ footer a.class1:hover { color: #ffffff; }
   .profile { flex-direction: column; align-items: center; text-align: center; }
   .profile-text { text-align: left; }
   .logos, .social { justify-content: center; }
-  header { padding: 18px 16px; }
-  .header-title { font-size: 1.7em; }
-  h2 { font-size: 1.35em; }
+  header { padding: 16px; position: static; flex-direction: column; text-align: center; }
+  header > div:first-child { font-size: 1.3em !important; white-space: normal; }
+  .header-title { font-size: 1.3em; }
   ul, ol { padding-left: 26px; }
 }
 
