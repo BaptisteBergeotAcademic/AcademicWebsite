@@ -116,9 +116,47 @@ header a.class1:focus-visible {
   text-decoration: none;
 }
 
-/* hide the "|" separators between nav links (kept in the HTML, removed visually) */
-header .header-nav span,
-header > div:last-child span { display: none; }
+/* hide the "|" separators between nav links (kept in the HTML, removed visually),
+   but keep the Publications dropdown wrapper visible */
+header .header-nav > span:not(.nav-dropdown),
+header > div:last-child > span:not(.nav-dropdown) { display: none; }
+
+/* ---- "Publications" hover dropdown ---------------------------------- */
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-submenu {
+  display: none;
+  position: absolute;
+  top: 100%;                 /* flush under the link — no hover gap */
+  left: 0;
+  min-width: 230px;
+  max-width: 86vw;
+  margin-top: 0;
+  padding: 6px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  text-align: left;
+  z-index: 200;
+}
+/* right-most menus open toward the left so they don't spill off-screen */
+.header-nav .nav-dropdown:nth-last-child(-n+2) .nav-submenu { left: auto; right: 0; }
+.nav-dropdown:hover .nav-submenu,
+.nav-dropdown:focus-within .nav-submenu { display: block; }
+.nav-submenu a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 7px;
+  color: var(--ink) !important;   /* dark text on the white menu */
+  font-size: .9em;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: background-color .15s ease, color .15s ease;
+}
+.nav-submenu a:hover {
+  background: var(--blue-soft);
+  color: var(--blue) !important;
+  text-decoration: none;
+}
 
 /* ----------------------------------------------------------- Typography */
 h1, h2, h3 { color: var(--blue); line-height: 1.25em; }

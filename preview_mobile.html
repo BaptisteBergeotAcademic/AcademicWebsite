@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aperçu mobile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Aperçu mobile</title>
 <style>
   body{margin:0;background:#e5e7eb;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
        display:flex;flex-direction:column;align-items:center;gap:14px;padding:24px 12px}
-  .cap{color:#334155;font-size:14px}
-  .phone{width:390px;max-width:100%;height:780px;border:12px solid #111827;border-radius:42px;
-          overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.28);background:#fff}
+  .cap{color:#334155;font-size:14px} .phone{width:390px;max-width:100%;height:780px;
+  border:12px solid #111827;border-radius:42px;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.28);background:#fff}
   .phone iframe{width:100%;height:100%;border:0;display:block}
-</style></head>
-<body>
-  <div class="cap">Aperçu mobile — rendu dans un écran de ~390&nbsp;px (fais défiler dans le cadre)</div>
+</style></head><body>
+  <div class="cap">Aperçu mobile — ~390&nbsp;px</div>
   <div class="phone"><iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -137,9 +134,47 @@ header a.class1:focus-visible {
   text-decoration: none;
 }
 
-/* hide the &quot;|&quot; separators between nav links (kept in the HTML, removed visually) */
-header .header-nav span,
-header &gt; div:last-child span { display: none; }
+/* hide the &quot;|&quot; separators between nav links (kept in the HTML, removed visually),
+   but keep the Publications dropdown wrapper visible */
+header .header-nav &gt; span:not(.nav-dropdown),
+header &gt; div:last-child &gt; span:not(.nav-dropdown) { display: none; }
+
+/* ---- &quot;Publications&quot; hover dropdown ---------------------------------- */
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-submenu {
+  display: none;
+  position: absolute;
+  top: 100%;                 /* flush under the link — no hover gap */
+  left: 0;
+  min-width: 230px;
+  max-width: 86vw;
+  margin-top: 0;
+  padding: 6px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  text-align: left;
+  z-index: 200;
+}
+/* right-most menus open toward the left so they don&#x27;t spill off-screen */
+.header-nav .nav-dropdown:nth-last-child(-n+2) .nav-submenu { left: auto; right: 0; }
+.nav-dropdown:hover .nav-submenu,
+.nav-dropdown:focus-within .nav-submenu { display: block; }
+.nav-submenu a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 7px;
+  color: var(--ink) !important;   /* dark text on the white menu */
+  font-size: .9em;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: background-color .15s ease, color .15s ease;
+}
+.nav-submenu a:hover {
+  background: var(--blue-soft);
+  color: var(--blue) !important;
+  text-decoration: none;
+}
 
 /* ----------------------------------------------------------- Typography */
 h1, h2, h3 { color: var(--blue); line-height: 1.25em; }
@@ -447,14 +482,14 @@ border-left:3px solid var(--blue-line);padding:6px 12px;background:var(--blue-so
 &lt;header&gt;
   &lt;div class=&quot;header-title&quot;&gt;Baptiste Bergeot&lt;span class=&quot;header-subtitle&quot;&gt; - Academic Website&lt;/span&gt;&lt;/div&gt;
   &lt;div class=&quot;header-nav&quot;&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;Home&lt;/a&gt;&lt;span style=&quot;margin:0 6px;&quot;&gt;|&lt;/span&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;CV&lt;/a&gt;&lt;span style=&quot;margin:0 6px;&quot;&gt;|&lt;/span&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;Research&lt;/a&gt;&lt;span style=&quot;margin:0 6px;&quot;&gt;|&lt;/span&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;Projects&lt;/a&gt;&lt;span style=&quot;margin:0 6px;&quot;&gt;|&lt;/span&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;Publications&lt;/a&gt;&lt;span style=&quot;margin:0 6px;&quot;&gt;|&lt;/span&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;Talks&lt;/a&gt;&lt;span style=&quot;margin:0 6px;&quot;&gt;|&lt;/span&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;Research supervision&lt;/a&gt;&lt;span style=&quot;margin:0 6px;&quot;&gt;|&lt;/span&gt;
-    &lt;a href=&quot;#&quot; class=&quot;class1&quot;&gt;Teaching&lt;/a&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;index.html&quot; class=&quot;class1&quot;&gt;Home&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;index.html#news&quot;&gt;News&lt;/a&gt;&lt;a href=&quot;index.html#contact&quot;&gt;Contact&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;SWBB_CV.html&quot; class=&quot;class1&quot;&gt;CV&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;SWBB_CV.html#position&quot;&gt;Position&lt;/a&gt;&lt;a href=&quot;SWBB_CV.html#responsibilities&quot;&gt;Responsibilities&lt;/a&gt;&lt;a href=&quot;SWBB_CV.html#experience&quot;&gt;Past experience&lt;/a&gt;&lt;a href=&quot;SWBB_CV.html#education&quot;&gt;Education&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;SWBB_research.html&quot; class=&quot;class1&quot;&gt;Research&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;SWBB_research.html#passiveNES&quot;&gt;Passive mitigation using NES&lt;/a&gt;&lt;a href=&quot;SWBB_research.html#tipping&quot;&gt;Transient dynamics in self-sustained oscillators&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;SWBB_projects.html&quot; class=&quot;class1&quot;&gt;Projects&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;SWBB_projects.html#coreve&quot;&gt;COREVE&lt;/a&gt;&lt;a href=&quot;SWBB_projects.html#bqr-vibrep&quot;&gt;BQR VIBREP&lt;/a&gt;&lt;a href=&quot;SWBB_projects.html#dsg-techmua&quot;&gt;DSG TECHMUA&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;SWBB_publications.html&quot; class=&quot;class1&quot;&gt;Publications&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;SWBB_publications.html#peer-reviewed&quot;&gt;Peer-reviewed international journals&lt;/a&gt;&lt;a href=&quot;SWBB_publications.html#hdr-dissertation&quot;&gt;HDR Dissertation&lt;/a&gt;&lt;a href=&quot;SWBB_publications.html#phd-dissertation&quot;&gt;PhD Dissertation&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;SWBB_talks.html&quot; class=&quot;class1&quot;&gt;Talks&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;SWBB_talks.html#workshops&quot;&gt;Invited talks and seminars&lt;/a&gt;&lt;a href=&quot;SWBB_talks.html#wsdays&quot;&gt;Workshops and thematic days&lt;/a&gt;&lt;a href=&quot;SWBB_talks.html#interconf&quot;&gt;International conferences&lt;/a&gt;&lt;a href=&quot;SWBB_talks.html#natconf&quot;&gt;National conferences&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;SWBB_supervision.html&quot; class=&quot;class1&quot;&gt;Research supervision&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;SWBB_supervision.html#postdoc&quot;&gt;Postdoctoral researchers&lt;/a&gt;&lt;a href=&quot;SWBB_supervision.html#phdstudents&quot;&gt;PhD students&lt;/a&gt;&lt;a href=&quot;SWBB_supervision.html#masterstudents&quot;&gt;Master students&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;nav-dropdown&quot;&gt;&lt;a href=&quot;SWBB_teaching.html&quot; class=&quot;class1&quot;&gt;Teaching&lt;/a&gt;&lt;span class=&quot;nav-submenu&quot;&gt;&lt;a href=&quot;SWBB_teaching.html#insacvl&quot;&gt;INSA Centre Val de Loire&lt;/a&gt;&lt;a href=&quot;SWBB_teaching.html#UT&quot;&gt;Université de Tours&lt;/a&gt;&lt;a href=&quot;SWBB_teaching.html#UM&quot;&gt;Le Mans Université&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;
   &lt;/div&gt;
 &lt;/header&gt;
 
