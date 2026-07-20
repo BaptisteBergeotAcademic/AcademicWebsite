@@ -116,6 +116,18 @@ header a.class1:focus-visible {
   text-decoration: none;
 }
 
+/* Current page: highlighted in the top navigation */
+header a.class1.active {
+  background-color: #ffffff;
+  color: var(--blue);
+  font-weight: 600;
+}
+header a.class1.active:hover,
+header a.class1.active:focus-visible {
+  background-color: #ffffff;
+  color: var(--blue-dark);
+}
+
 /* hide the "|" separators between nav links (kept in the HTML, removed visually),
    but keep the Publications dropdown wrapper visible */
 header .header-nav > span:not(.nav-dropdown),
